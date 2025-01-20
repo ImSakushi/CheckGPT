@@ -1,0 +1,4 @@
+discord
+requests
+openai
+bs4
