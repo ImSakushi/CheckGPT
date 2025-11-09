@@ -15,7 +15,7 @@ les correcteurs puissent appliquer les modifications facilement.
 
 1. **Cloner le dépôt** et ouvrir le dossier :
    ```bash
-   git clone <ton-repo>
+   git clone https://github.com/ImSakushi/CheckGPT
    cd CheckGPT
    ```
 2. **Créer un environnement virtuel** et activer :
