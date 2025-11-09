@@ -10,6 +10,7 @@ PROMPT_CORRECTEUR = (
     "Je veux juste les fautes d'orthographe ou grammaticale. Pas besoin de me dire s'il manque une majuscule au "
     "début d'une phrase ou si c'est la mauvaise apostrophe utilisé ou si la négation n'est pas bonne (par "
     "exemple : pas besoin de corriger \"t'as pas pris ça ?\" par \"tu n'as pas pris ça\"\n\n"
+    "Aussi, ne corrige pas les apostrophes."
     "Tu dois toujours prendre les dialogues avec leur contexte, parfois un seul dialogue est séparé en deux "
     "bulles (donc deux dialogues) différents\n\n"
     "Avant de me donner ta correction, vérifie bien plusieurs reprises que tu n'as rien oublié.\n\n"

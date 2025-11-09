@@ -1,4 +1,4 @@
-# CheckGPT
+# Bot de relecture manga
 
 Ce bot Discord relit automatiquement les chapitres de manga stockés dans Google Docs en utilisant l'API Responses
 de GPT-5. Il liste les fautes d'orthographe et de grammaire en respectant un format précis pour que
@@ -15,10 +15,10 @@ les correcteurs puissent appliquer les modifications facilement.
 
 1. **Cloner le dépôt** et ouvrir le dossier :
    ```bash
-   git clone https://github.com/ImSakushi/CheckGPT
+   git clone <ton-repo>
    cd CheckGPT
    ```
-2. **Créer un environnement virtuel** et activer (mais vous pouvez faire sans):
+2. **Créer un environnement virtuel** et activer :
    ```bash
    python -m venv venv
    # Sous Windows

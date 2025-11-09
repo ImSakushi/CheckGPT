@@ -1,7 +1,9 @@
 import os
+import asyncio
 import re
 import requests
 import discord
+import openai
 from openai import OpenAI
 from bs4 import BeautifulSoup
 from discord import app_commands
@@ -33,7 +35,25 @@ try:
     ALLOWED_ROLE_ID = int(ALLOWED_ROLE_ID)
 except ValueError:
     raise RuntimeError("ALLOWED_ROLE_ID doit être un entier valide.")
-openai_client = OpenAI(api_key=OPENAI_API_KEY)
+
+try:
+    openai_client = OpenAI(api_key=OPENAI_API_KEY)
+except Exception:
+    openai_client = openai
+    openai_client.api_key = OPENAI_API_KEY
+
+
+def get_responses_handler():
+    handler = getattr(openai_client, "responses", None)
+    if handler:
+        return handler
+    handler = getattr(openai, "responses", None)
+    if handler:
+        return handler
+    raise RuntimeError(
+        "Impossible d'accéder à l'API Responses. Mettez à jour openai>=1.12.0 ou "
+        "utilisez un client compatible."
+    )
 
 def get_gdoc_title(gdoc_link):
     try:
@@ -84,7 +104,9 @@ def extract_response_text(response):
 
 async def analyze_content(content, doc_name, reasoning_effort="medium"):
     try:
-        response = openai_client.responses.create(
+        responses_handler = get_responses_handler()
+        response = await asyncio.to_thread(
+            responses_handler.create,
             model=OPENAI_MODEL,
             input=[
                 {
