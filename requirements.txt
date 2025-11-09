@@ -1,4 +1,5 @@
-discord
-requests
+beautifulsoup4
+discord.py
 openai
-bs4
+python-dotenv
+requests
