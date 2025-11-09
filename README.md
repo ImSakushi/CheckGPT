@@ -18,7 +18,7 @@ les correcteurs puissent appliquer les modifications facilement.
    git clone https://github.com/ImSakushi/CheckGPT
    cd CheckGPT
    ```
-2. **Créer un environnement virtuel** et activer :
+2. **Créer un environnement virtuel** et activer (mais vous pouvez faire sans):
    ```bash
    python -m venv venv
    # Sous Windows
