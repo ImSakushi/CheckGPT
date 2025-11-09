@@ -1,4 +1,4 @@
-# Bot de relecture manga
+# CheckGPT
 
 Ce bot Discord relit automatiquement les chapitres de manga stockés dans Google Docs en utilisant l'API Responses
 de GPT-5. Il liste les fautes d'orthographe et de grammaire en respectant un format précis pour que
