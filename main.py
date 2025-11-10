@@ -102,7 +102,7 @@ def extract_response_text(response):
         return legacy.strip()
     return ""
 
-async def analyze_content(content, doc_name, reasoning_effort="medium"):
+async def analyze_content(content, doc_name, reasoning_effort="high"):
     try:
         responses_handler = get_responses_handler()
         response = await asyncio.to_thread(
@@ -156,7 +156,7 @@ async def analyze_content(content, doc_name, reasoning_effort="medium"):
         print(f"Erreur OpenAI: {e}")
         return None
 
-async def process_check(interaction: discord.Interaction, lien: str, reasoning_effort="medium"):
+async def process_check(interaction: discord.Interaction, lien: str, reasoning_effort="high"):
     try:
         doc_name = get_gdoc_title(lien)
         gdoc_id = re.search(r'/d/([a-zA-Z0-9-_]+)', lien).group(1)
@@ -204,7 +204,7 @@ class CheckContextMenu(app_commands.ContextMenu):
         if not gdoc_links:
             return await interaction.followup.send("❌ Aucun lien Google Docs valide trouvé", ephemeral=True)
         
-        await process_check(interaction, gdoc_links[0], reasoning_effort="medium")
+        await process_check(interaction, gdoc_links[0])
 
 @tree.command(name="check", description="Corrige un script de manga depuis Google Docs")
 @app_commands.choices(
@@ -219,7 +219,7 @@ class CheckContextMenu(app_commands.ContextMenu):
 async def slash_check(
     interaction: discord.Interaction,
     lien: str,
-    effort: str = "medium",
+    effort: str = "high",
 ):
     await interaction.response.defer()
     await process_check(interaction, lien, reasoning_effort=effort)
