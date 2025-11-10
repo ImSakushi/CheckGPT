@@ -18,5 +18,5 @@ PROMPT_CORRECTEUR = (
     "Tu devrais me donner le résultat sous cette forme, je te donne un exemple :\n\n"
     "**Page [?] Bulle [?]**\n"
     "- [Phrase complète avec la faute] -> [Correction]\n"
-    " - [Courte explication]"
+    "  - [Courte explication]"
 )
